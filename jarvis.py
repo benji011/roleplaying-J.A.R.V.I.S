@@ -3,8 +3,6 @@ import random
 
 from discord import RequestsWebhookAdapter, Webhook
 
-NEWS_API_KEY = os.environ['USEFUL_TREVOR_API_KEY']
-
 BENJI = os.environ['BENJI']
 ANDO = os.environ['ANDO']
 DANNY = os.environ['DANNY']
