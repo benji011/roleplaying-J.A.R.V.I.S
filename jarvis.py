@@ -14,7 +14,7 @@ DISCORD_TOKEN_ID = os.environ['DISCORD_TOKEN_ID_JARVIS']
 DISCORD_TOKEN = os.environ['DISCORD_TOKEN_JARVIS']
 
 GENDER = random.choice(["M", "F"])
-GITHUB_LINK = "https://github.com/benji011/aki-bot/blob/master/aki_bot.py"
+GITHUB_LINK = "https://github.com/benji011/roleplaying-J.A.R.V.I.S"
 
 
 def get_profession():
