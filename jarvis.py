@@ -5,6 +5,11 @@ from discord import RequestsWebhookAdapter, Webhook
 
 NEWS_API_KEY = os.environ['USEFUL_TREVOR_API_KEY']
 
+BENJI = os.environ['BENJI']
+ANDO = os.environ['ANDO']
+DANNY = os.environ['DANNY']
+DARREN = os.environ['DARREN']
+
 JARVIS_FETISH_LIST = os.environ['JARVIS_FETISH_LIST']
 JARVIS_HOBBIES_LIST = os.environ['JARVIS_HOBBIES_LIST']
 JARVIS_LIFE_CHOICES_LIST = os.environ['JARVIS_LIFE_CHOICES_LIST']
@@ -15,6 +20,16 @@ DISCORD_TOKEN = os.environ['DISCORD_TOKEN_JARVIS']
 
 GENDER = random.choice(["M", "F"])
 GITHUB_LINK = "https://github.com/benji011/roleplaying-J.A.R.V.I.S"
+
+DISCORD_TOKEN_ID = os.environ['DISCORD_TOKEN_ID']
+DISCORD_TOKEN = os.environ['DISCORD_TOKEN']
+GITHUB_LINK = "https://github.com/benji011/aki-bot/blob/master/aki_bot.py"
+
+
+def get_random_inaka_boisss():
+    """Get a random person to send a random article to."""
+    inaka_boisss = [BENJI, ANDO, DANNY, DARREN]
+    return random.choice(inaka_boisss)
 
 
 def get_profession():
@@ -85,6 +100,9 @@ def get_life_choices():
 
 def compose_message():
     """Compose message."""
+    recipent = "<@{user_id}>".format(
+        user_id=get_random_inaka_boisss()
+    )
     msg = (
         "we can roleplay as a {age} year old {profession} "
         "{interest} {hobby} and {addiction} "
@@ -109,7 +127,7 @@ def compose_message():
     ).format(
         github_link=GITHUB_LINK
     )
-    msg = msg + github_url_msg
+    msg = recipent + " " + msg + github_url_msg
     return msg
 
 
