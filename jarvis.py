@@ -20,12 +20,6 @@ GENDER = random.choice(["M", "F"])
 GITHUB_LINK = "https://github.com/benji011/roleplaying-J.A.R.V.I.S"
 
 
-def get_random_inaka_boisss():
-    """Get a random person to send a random article to."""
-    inaka_boisss = [BENJI, ANDO, DANNY, DARREN]
-    return random.choice(inaka_boisss)
-
-
 def get_profession():
     """Get profession."""
     with open(JARVIS_PROFESSIONS_LIST) as f:
@@ -94,9 +88,6 @@ def get_life_choices():
 
 def compose_message():
     """Compose message."""
-    recipent = "<@{user_id}>".format(
-        user_id=get_random_inaka_boisss()
-    )
     msg = (
         "we can roleplay as a {age} year old {profession} "
         "{interest} {hobby} and {addiction} "
@@ -121,7 +112,7 @@ def compose_message():
     ).format(
         github_link=GITHUB_LINK
     )
-    msg = recipent + " " + msg + github_url_msg
+    msg += github_url_msg
     return msg
 
 
