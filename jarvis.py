@@ -1,7 +1,7 @@
 import os
 import random
 
-from discord import RequestsWebhookAdapter, Webhook
+# from discord import RequestsWebhookAdapter, Webhook
 
 BENJI = os.environ['BENJI']
 ANDO = os.environ['ANDO']
@@ -88,48 +88,47 @@ def get_life_choices():
 
 def compose_message():
     """Compose message."""
+    age = get_age()
+    profession = get_profession()
+    interest = get_interest()
+    hobby = get_hobby()
+    addiction = get_addiction()
+    fetish = get_fetish()
+    time_of_day = get_time_of_day()
+    subject_pronoun=get_gender().get ( "SUBJECT_PRONOUN")
+    posessive_adjective=get_gender().get ( "POSESSIVE_ADJECTIVE")
+    life_choices=get_life_choices()
+
     msg = (
-        "we can roleplay as a {age} year old {profession} "
-        "{interest} {hobby} and {addiction} "
-        "for {fetish} but every {time_of_day} "
-        "{subject_pronoun} contemplates "
-        "{posessive_adjective} {life_choices}."
-    ).format(
-        age=get_age(),
-        profession=get_profession(),
-        interest=get_interest(),
-        hobby=get_hobby(),
-        addiction=get_addiction(),
-        fetish=get_fetish(),
-        time_of_day=get_time_of_day(),
-        subject_pronoun=get_gender().get("SUBJECT_PRONOUN"),
-        posessive_adjective=get_gender().get("POSESSIVE_ADJECTIVE"),
-        life_choices=get_life_choices()
+        f"we can roleplay as a {age} year old {profession} "
+        f"{interest} {hobby} and {addiction} "
+        f"for {fetish} but every {time_of_day} "
+        f"{subject_pronoun} contemplates "
+        f"{posessive_adjective} {life_choices}."
     )
+
     github_url_msg = (
-        "\n\nbeep bop I'm a bot\n"
-        "My source code is here - {github_link}"
-    ).format(
-        github_link=GITHUB_LINK
+        f"\n\nbeep bop I'm a bot\nMy source code is here - {GITHUB_LINK}"
     )
     msg += github_url_msg
     return msg
 
 
-def send_message(msg):
-    """Send message."""
-    webhook = Webhook.partial(
-        DISCORD_TOKEN_ID,
-        DISCORD_TOKEN,
-        adapter=RequestsWebhookAdapter()
-    )
-    webhook.send(msg)
+# def send_message(msg):
+#     """Send message."""
+#     webhook = Webhook.partial(
+#         DISCORD_TOKEN_ID,
+#         DISCORD_TOKEN,
+#         adapter=RequestsWebhookAdapter()
+#     )
+#     webhook.send(msg)
 
 
 def main():
     """The main function."""
     msg = compose_message()
-    send_message(msg)
+    # send_message(msg)
+    print(msg)
 
 
 if __name__ == "__main__":
