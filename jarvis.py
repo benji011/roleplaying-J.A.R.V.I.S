@@ -1,7 +1,7 @@
 import os
 import random
 
-# from discord import RequestsWebhookAdapter, Webhook
+from discord import RequestsWebhookAdapter, Webhook
 
 BENJI = os.environ['BENJI']
 ANDO = os.environ['ANDO']
@@ -114,21 +114,19 @@ def compose_message():
     return msg
 
 
-# def send_message(msg):
-#     """Send message."""
-#     webhook = Webhook.partial(
-#         DISCORD_TOKEN_ID,
-#         DISCORD_TOKEN,
-#         adapter=RequestsWebhookAdapter()
-#     )
-#     webhook.send(msg)
-
+def send_message(msg):
+    """Send message."""
+    webhook = Webhook.partial(
+        DISCORD_TOKEN_ID,
+        DISCORD_TOKEN,
+        adapter=RequestsWebhookAdapter()
+    )
+    webhook.send(msg)
 
 def main():
     """The main function."""
     msg = compose_message()
-    # send_message(msg)
-    print(msg)
+    send_message(msg)
 
 
 if __name__ == "__main__":
