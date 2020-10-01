@@ -123,6 +123,7 @@ def send_message(msg):
     )
     webhook.send(msg)
 
+
 def main():
     """The main function."""
     msg = compose_message()
